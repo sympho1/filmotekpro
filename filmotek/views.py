@@ -24,11 +24,11 @@ def add_film(request):
         if form.is_valid():
             title = form.cleaned_data["title"]
             release_date = form.cleaned_data["release_date"]
-            vote = form.cleaned_data["vote"]
+            # vote = form.cleaned_data["vote"]
             # score = form.cleaned_data["score"]
             realisator = form.cleaned_data["realisator"]
 
-            film = Film(title=title, release_date=release_date, vote=vote, realisator=realisator)
+            film = Film(title=title, release_date=release_date, realisator=realisator)
             film.save()
             # messages.success(request, "Film ajouté avec succès")
             return redirect(reverse('all-films'))
