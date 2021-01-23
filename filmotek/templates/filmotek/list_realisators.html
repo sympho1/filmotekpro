@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Tous Les Realisateurs</h1>
+{% if all_realisators %}
+<ul class="">
+{% for realisator in all_realisators  %}
+<div class="card">
+            <h5 class="card-header"><a href="{% url 'realisator' realisator.id%}">{{realisator.name}}</a></h5>
+            <div class="card-body">
+                <h5 class="card-title">Special title treatment</h5>
+                <p class="card-text">Vous pouvez voir tous les films réalisés par <strong>{{realisator.name}}</strong>.</p>
+                <p>en cliquant sur le bouton voir ou sur le lien au-dessus</p>
+                <a href="{% url 'realisator' realisator.id %}" class="btn btn-primary">Voir +</a>
+                <a href="{% url 'delete-realisator' realisator.id %}" class="btn btn-danger">supprimer le réalisateur</a>
+            </div>
+</div>
+<div style="height: 15px"></div>
+{% comment %} <li><a href="{% url 'realisator' realisator.id %}">{{realisator.name}}</a> <a href="" class="btn btn-danger">supprimer le realisator</a></li> {% endcomment %}
+{% endfor %}
+</ul>
+{% endif %}
+{% endblock content %}

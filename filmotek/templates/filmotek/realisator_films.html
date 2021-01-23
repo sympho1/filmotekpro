@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Films réalisés par {{ realisator.name}}</h1>
+<ul>
+{% for film in realisator_films  %}
+<li>{{ film.title }}</li>
+{% endfor %}
+</ul>
+{% endblock content %}

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="card", style="margin: 15px;">
+        <h5 class="card-header"><a href="{% url 'realisator-films' realisator.id %}">{{realisator.name}}</a></h5>
+        <div class="card-body">
+            <h5 class="card-title">Filmotheque</h5>
+            {% if not realisator.film_set.all %}
+            <p>Aucun film ajouté. </p>
+            <a href="{% url 'add-film' %}">Ajouter ?</a>
+            {% else %}
+            {% for film in realisator.film_set.all  %}
+                <li><a href="{% url 'film' film.id %}">{{ film.title }}<a></li>
+            {% endfor %}
+            {% endif %}
+            
+            {% comment %} <p class="card-text"> Le film {{film.title}} est réalisé par <strong>{{film.realisator.name}}</strong>.</p> {% endcomment %}
+            
+            {% comment %} <a href="{% url 'add-film' %} " class="btn btn-primary">ajouter un film </a> {% endcomment %}
+        </div>
+</div>
+{% endblock content %}
+
+{% comment %} <a href="{% url 'realisator-films' realisator.id %}">voir les films</a> {% endcomment %}

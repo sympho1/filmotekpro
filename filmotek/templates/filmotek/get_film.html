@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="card", style="margin: 15px;">
+        <h5 class="card-header"><a href="{% url 'film' film.id%}">{{film.title}}</a></h5>
+        <div class="card-body">
+            <h5 class="card-title">Description</h5>
+            <p class="card-text"> Le film {{film.title}} est réalisé par <strong>{{film.realisator.name}}</strong>.</p>
+            <p>{{ film.release_date }}</p>
+            
+            <a href="{% url 'delete-film' film.id %}" class="btn btn-primary">supprimer</a>
+        </div>
+</div>
+{% endblock content %}

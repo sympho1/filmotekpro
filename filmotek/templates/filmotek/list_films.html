@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content     %}
+<h1 class="">Tous Les Films</h1>
+{% if all_films %}
+
+{% for film in all_films  %}
+{% comment %} <li><a href="{% url 'film' film.id%}">{{film.title}}</a></li> {% endcomment %}
+<div class="card">
+            <h5 class="card-header"><a href="{% url 'film' film.id%}">{{film.title}}</a></h5>
+            <div class="card-body">
+                {% comment %} <h5 class="card-title">Special title treatment</h5> {% endcomment %}
+                <p class="card-text">Date de Sortie: <strong> {{ film.release_date }}</strong>.</p>
+                <p class="card-text">Réalisateur: <strong> {{ film.realisator.name }}</strong>.</p>
+                <a href="{% url 'film' film.id %}" class="btn btn-primary">Voir +</a>
+                <a href="{% url 'delete-film' film.id %}" class="btn btn-danger">supprimer le film</a>
+            </div>
+        </div>
+        <div style="height: 15px"></div>
+{% endfor %}
+<a  href="{% url 'add-film' %}">Ajouter un film</a>
+{% endif %}
+
+{% endblock  %}
