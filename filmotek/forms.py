@@ -4,6 +4,7 @@ from .models import Film, Realisator
 
 class RealisatorForm(forms.ModelForm):
     # name = forms.CharField(label="Nom du Réalisateur", max_length=350)
+    name = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control'}))
     class Meta:
         model = Realisator
         fields = '__all__'
@@ -15,5 +16,7 @@ class FilmForm(forms.ModelForm):
         model = Film
         fields = '__all__'
         widgets = {
-            'release_date': forms.DateInput(attrs={'type': 'date'})
+            'release_date': forms.DateInput(attrs={'type': 'date', 'class': 'form-control'}),
+            'title': forms.TextInput(attrs={'class': 'form-control'}),
+            'realisator': forms.TextInput(attrs={'class': 'form-control'})
         }
