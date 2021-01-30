@@ -13,7 +13,15 @@
 <h1>Ajouter Film</h1>
 <form method="post">
     {% csrf_token %}
-    {{ form }}
-    <input type="submit" value="créer">
+    {{ form.title.errors }}
+    <label for="{{form.title.id_for_label}}" class="form-label" >titre</label>
+    {{ form.title}}
+    {{ form.release_date.errors }}
+    <label for="{{form.release_date.id_for_label}}" class="form-label" >Date de sortie</label>
+    {{ form.release_date}}
+    {{ form.realisator.errors }}
+    <label for="{{form.realisator.id_for_label}}" class="form-label" >Réalisator</label>
+    {{ form.realisator }}
+    <input type="submit" class="form-control btn btn-outline-primary" value="créer">
 </form>
 {% endblock content %}
